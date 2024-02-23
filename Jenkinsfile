@@ -22,7 +22,7 @@ pipeline {
 
         stage("Checkout from SCM"){
                 steps {
-                    git branch: 'main', credentialsId: 'github', url: 'https://github.com/Ashfaque-9x/register-app'
+                    git branch: 'main', credentialsId: 'github', url: 'https://github.com/kkiran98/registerapp.git'
                 }
         }
 
@@ -39,7 +39,7 @@ pipeline {
            }
        }
 
-       stage("SonarQube Analysis"){
+   /*    stage("SonarQube Analysis"){
            steps {
 	           script {
 		        withSonarQubeEnv(credentialsId: 'jenkins-sonarqube-token') { 
@@ -98,9 +98,9 @@ pipeline {
                 }
             }
        }
-    }
+    } */
 
-    post {
+  /*  post {
        failure {
              emailext body: '''${SCRIPT, template="groovy-html.template"}''', 
                       subject: "${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} - Failed", 
@@ -111,5 +111,5 @@ pipeline {
                      subject: "${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} - Successful", 
                      mimeType: 'text/html',to: "ashfaque.s510@gmail.com"
       }      
-   }
+   } */
 }
